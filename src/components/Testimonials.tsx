@@ -38,12 +38,9 @@ export default function Testimonials() {
   const { t } = useLocale();
 
   return (
-    <section
-      id="testimonials"
-      className="relative px-5 py-10 sm:p-10 overflow-hidden"
-    >
+    <section id="testimonials" className="relative mb-14">
       <video
-        className="absolute bottom-0 left-0 right-0 w-full h-auto object-fill"
+        className="relative w-full object-cover object-center max-h-[512px]"
         muted
         autoPlay
         loop
@@ -51,26 +48,21 @@ export default function Testimonials() {
         src="/beach.mp4"
       />
 
-      <div className="relative z-10 container mx-auto">
-        <div className="text-center mb-10">
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-800 mb-4">
+      <div className="px-4">
+        <div className="text-center bg-white my-10">
+          <h3 className="text-4xl sm:text-5xl font-bold text-black mb-4">
             {t("testimonials.title")}
-          </h2>
+          </h3>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             {t("testimonials.subtitle")}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="flex flex-wrap gap-5 justify-center">
           {testimonials.map((testimonial, index) => (
             <div
               key={testimonial.id}
-              className="bg-black/60 text-white rounded-xl shadow-lg p-8 transform hover:scale-105 transition-transform duration-300 cursor-pointer"
-              style={{
-                transform: `translateY(${
-                  Math.sin(scrollY * 0.01 + index) * 10
-                }px)`,
-              }}
+              className="max-w-[400px] bg-black/60 text-white rounded-xl shadow-lg p-8 transform hover:scale-105 transition-transform duration-300 cursor-pointer"
             >
               <div className="flex items-center mb-6">
                 <img

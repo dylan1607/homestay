@@ -18,11 +18,6 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <h3 className="text-2xl font-bold mb-6">Cozy.</h3>
-            <p className="text-gray-300 mb-6 leading-relaxed">
-              Experience unparalleled luxury and comfort at our world-class
-              hotel. Your perfect stay awaits with exceptional service and
-              stunning accommodations.
-            </p>
             <div className="flex space-x-4">
               <a
                 href="#"
@@ -97,7 +92,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="text-gray-300"
                 >
-                  39/12 Đoàn Trần Nghiệp, phường Bắc Nha Trang
+                  30/12 Đoàn Trần Nghiệp, phường Bắc Nha Trang
                 </a>
               </div>
 

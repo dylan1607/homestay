@@ -40,7 +40,10 @@ const Rooms = () => {
   const activeRoom = data.find((room) => room.id === activeId);
 
   return (
-    <div className="flex flex-col sm:flex-row justify-center items-center sm:items-start px-5 py-10 sm:p-10 gap-5 sm:gap-10">
+    <div
+      id="rooms"
+      className="flex flex-col sm:flex-row justify-center items-center sm:items-start mb-14 px-5 sm:px-10 gap-5 sm:gap-10"
+    >
       {/* Image Left */}
       <div className="w-full max-w-[400px] aspect-[3/4] rounded-xl shadow-md">
         <img

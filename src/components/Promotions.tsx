@@ -43,7 +43,7 @@ export default function Promotions() {
   const isEnteredViewport = useObserver(ref, { threshold: 0.5 });
 
   return (
-    <section ref={ref} id="promotions" className="py-20 bg-white">
+    <section ref={ref} id="promotions" className="mb-14">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold text-black mb-4">

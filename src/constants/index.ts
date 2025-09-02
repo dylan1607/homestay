@@ -1,7 +1,6 @@
 export const MENUS = [
-  { href: "#home", text: "Home", locale: "nav.home" },
   { href: "#rooms", text: "Rooms", locale: "nav.rooms" },
-  { href: "#amenities", text: "Amenities", locale: "nav.amenities" },
+  { href: "#promotions", text: "Promotions", locale: "nav.promotions" },
   { href: "#testimonials", text: "Testimonials", locale: "nav.reviews" },
   { href: "#contact", text: "Contact", locale: "nav.contact" },
   { href: "#bookNow", text: "Book Now", locale: "nav.bookNow" },
@@ -10,12 +9,12 @@ export const MENUS = [
 export const LOCALE = {
   en: {
     // Header
-    "nav.home": "Home",
     "nav.rooms": "Rooms",
     "nav.amenities": "Amenities",
     "nav.reviews": "Reviews",
     "nav.contact": "Contact",
     "nav.bookNow": "Book Now",
+    "nav.promotions": "Promotions",
 
     // Hero
     "hero.title": "Luxury Awaits",
@@ -65,12 +64,12 @@ export const LOCALE = {
   },
   vi: {
     // Header
-    "nav.home": "Trang chủ",
     "nav.rooms": "Phòng",
     "nav.amenities": "Tiện ích",
     "nav.reviews": "Đánh giá",
     "nav.contact": "Liên hệ",
     "nav.bookNow": "Đặt phòng",
+    "nav.promotions": "Khuyến mãi",
 
     // Hero
     "hero.title": "Sự Sang Trọng Đang Chờ",

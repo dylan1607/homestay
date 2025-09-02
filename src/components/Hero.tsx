@@ -13,8 +13,8 @@ export default function Hero() {
 
   return (
     <section
-      id="home"
-      className="relative h-[calc(100vh-80px)] sm:h-screen overflow-hidden bg-white"
+      id="banner"
+      className="relative h-[calc(100vh-80px)] sm:h-screen overflow-hidden bg-white mb-14"
     >
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
