@@ -120,11 +120,6 @@ export default function BookingForm() {
               </svg>
             </div>
           </div>
-          {formData.checkOut && (
-            <p className="text-xs text-gray-600 mt-1">
-              {formatDate(formData.checkOut)}
-            </p>
-          )}
         </div>
 
         <div>

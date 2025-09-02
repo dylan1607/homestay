@@ -11,7 +11,10 @@ export default function Header() {
   const renderLocaleButton = () => (
     <div className="flex items-center gap-2 text-inherit">
       <button
-        onClick={() => setLocale("en")}
+        onClick={() => {
+          setIsMenuOpen(false);
+          setLocale("en");
+        }}
         className={`px-3 py-1 rounded text-sm font-medium cursor-pointer ${
           locale === "en" && "bg-blue-500 text-white"
         }`}
@@ -19,7 +22,10 @@ export default function Header() {
         🇺🇸 EN
       </button>
       <button
-        onClick={() => setLocale("vi")}
+        onClick={() => {
+          setIsMenuOpen(false);
+          setLocale("vi");
+        }}
         className={`px-3 py-1 rounded text-sm font-medium cursor-pointer ${
           locale === "vi" && "bg-red-500 text-white"
         }`}
@@ -30,8 +36,12 @@ export default function Header() {
   );
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-transparent backdrop-blur-xl">
-      <nav className="container px-4 py-4 sm:py-6 mx-auto rounded-xl duration-300 transition-all text-black">
+    <header
+      className={`fixed top-0 left-0 w-full z-20 ${
+        isMenuOpen ? "bg-white" : "bg-transparent backdrop-blur-xl"
+      }`}
+    >
+      <nav className="container px-6 py-3 sm:py-6 mx-auto rounded-xl duration-300 transition-all text-black">
         <div className="flex items-center justify-between">
           <Link href="/" className="text-2xl font-semibold">
             Cozy.
@@ -42,7 +52,7 @@ export default function Header() {
               <Link
                 key={index}
                 href={menu.href}
-                className="hover:text-blue-400"
+                className="text-xl hover:text-blue-400"
               >
                 {t(menu.locale)}
               </Link>

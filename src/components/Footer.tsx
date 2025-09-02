@@ -126,6 +126,14 @@ export default function Footer() {
               </div> */}
             </div>
           </div>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d243.66585102649546!2d109.2014941!3d12.2717038!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317067edbd580f25%3A0xfdcf3e0dc83b4637!2zSOG6u20gxJBvw6BuIFRy4bqnbiBOZ2hp4buHcCwgVsSpbmggUGjGsOG7m2MsIE5oYSBUcmFuZywgS2jDoW5oIEjDsmEgNjUwMDAw!5e0!3m2!1sen!2s!4v1756823554215!5m2!1sen!2s"
+            width={"100%"}
+            height={"200"}
+            style={{ border: 0 }}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
         </div>
 
         <div className="border-t border-gray-800 mt-12 pt-8">

@@ -1,43 +1,13 @@
 "use client";
 
 import React from "react";
-// import guestRoom from "../../public/guest-room.jpg";
-import Bedroom1 from "../../public/bedroom-1.jpg";
-import Bedroom2 from "../../public/bedroom-2.jpg";
-import Livingroom1 from "../../public/livingroom-1.jpg";
-import Livingroom2 from "../../public/livingroom-2.jpg";
+import { useLocale } from "@/contexts/LocaleContext";
+import { ROOMS } from "@/constants";
 
-const data = [
-  {
-    id: 1,
-    title: "Living Room",
-    description: "A cozy room with a comfortable bed and modern amenities.",
-    image: Livingroom1.src,
-  },
-  {
-    id: 2,
-    title: "Bed Room",
-    description:
-      "Spacious room with a king-size bed, seating area, and premium facilities.",
-    image: Bedroom1.src,
-  },
-  {
-    id: 3,
-    title: "Living Room",
-    description: "A cozy room with a comfortable bed and modern amenities.",
-    image: Livingroom2.src,
-  },
-  {
-    id: 4,
-    title: "Delux Room",
-    description:
-      "Spacious room with a king-size bed, seating area, and premium facilities.",
-    image: Bedroom2.src,
-  },
-];
 const Rooms = () => {
-  const [activeId, setActiveId] = React.useState(data[0].id);
-  const activeRoom = data.find((room) => room.id === activeId);
+  const { locale } = useLocale();
+  const [activeId, setActiveId] = React.useState(ROOMS[0].id);
+  const activeRoom = ROOMS.find((room) => room.id === activeId);
 
   return (
     <div
@@ -54,7 +24,7 @@ const Rooms = () => {
       </div>
       {/* Tabs & Details Right */}
       <div className="sm:w-1/2 flex flex-col items-start">
-        {data.map((room) => (
+        {ROOMS.map((room) => (
           <div
             key={room.id}
             className="border-b-2 border-black/10 py-4 cursor-pointer w-full"
@@ -62,7 +32,7 @@ const Rooms = () => {
           >
             <h2 className="text-lg font-semibold">{room.title}</h2>
             {activeRoom && activeRoom.id === room.id && (
-              <p className="text-gray-700">{activeRoom.description}</p>
+              <p className="text-gray-700">{activeRoom.description[locale]}</p>
             )}
           </div>
         ))}

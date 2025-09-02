@@ -1,9 +1,53 @@
+import Bedroom1 from "../../public/bedroom-1.jpg";
+import Bedroom2 from "../../public/bedroom-2.jpg";
+import Livingroom1 from "../../public/livingroom-1.jpg";
+import Livingroom2 from "../../public/livingroom-2.jpg";
+
 export const MENUS = [
   { href: "#rooms", text: "Rooms", locale: "nav.rooms" },
   { href: "#promotions", text: "Promotions", locale: "nav.promotions" },
   { href: "#testimonials", text: "Testimonials", locale: "nav.reviews" },
   { href: "#contact", text: "Contact", locale: "nav.contact" },
   { href: "#bookNow", text: "Book Now", locale: "nav.bookNow" },
+];
+
+export const ROOMS = [
+  {
+    id: 1,
+    title: "Living Room",
+    description: {
+      en: "A cozy room with a comfortable bed and modern amenities.",
+      vi: "Một căn phòng ấm cúng với giường thoải mái và tiện nghi hiện đại.",
+    },
+    image: Livingroom1.src,
+  },
+  {
+    id: 2,
+    title: "Bed Room",
+    description: {
+      en: "Spacious room with a king-size bed, seating area, and premium facilities.",
+      vi: "Phòng rộng rãi với giường cỡ king, khu vực tiếp khách và tiện nghi cao cấp.",
+    },
+    image: Bedroom1.src,
+  },
+  {
+    id: 3,
+    title: "Living Room",
+    description: {
+      en: "A cozy room with a comfortable bed and modern amenities.",
+      vi: "Một căn phòng ấm cúng với giường thoải mái và tiện nghi hiện đại.",
+    },
+    image: Livingroom2.src,
+  },
+  {
+    id: 4,
+    title: "Delux Room",
+    description: {
+      en: "Spacious room with a king-size bed, seating area, and premium facilities.",
+      vi: "Phòng rộng rãi với giường cỡ king, khu vực tiếp khách và tiện nghi cao cấp.",
+    },
+    image: Bedroom2.src,
+  },
 ];
 
 export const LOCALE = {

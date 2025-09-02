@@ -23,15 +23,15 @@ export default function Hero() {
           transform: `translateY(${scrollY * 0.35}px)`,
         }}
       >
-        <div className="absolute inset-0 bg-black/10"></div>
+        <div className="absolute inset-0 bg-white/10"></div>
       </div>
 
-      <div className="absolute inset-0 -top-20 z-10 h-full flex items-center justify-center text-center text-black">
+      <div className="absolute inset-0 -translate-y-20 z-10 h-full flex items-center justify-center text-center text-black">
         <div className="max-w-4xl mx-auto px-4">
-          <h1 className="text-3xl sm:text-7xl font-bold mb-6 animate-fade-in">
+          <h2 className="text-4xl sm:text-5xl font-bold mb-6 animate-fade-in">
             {t("hero.title")}
-          </h1>
-          <p className="text-lg sm:text-2xl mb-8 max-w-2xl mx-auto">
+          </h2>
+          <p className="sm:text-lg mb-8 max-w-2xl mx-auto">
             {t("hero.subtitle")}
           </p>
           <button

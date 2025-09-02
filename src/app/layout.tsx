@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 const myFont = localFont({
-  src: "../../public/fonts/Airbnb-Cereal-App-Medium.ttf",
+  src: "../../public/fonts/Helvetica.ttf",
 });
 
 export const metadata: Metadata = {
