@@ -5,7 +5,7 @@ const FloatingIcon = () => {
     <a
       href="https://zalo.me/0868847472"
       target="_blank"
-      className="fixed bottom-0 right-0 m-4 z-50"
+      className="fixed bottom-14 right-0 m-4 z-50"
     >
       <button className="rounded-full shadow-lg p-3 bg-white">
         <svg

@@ -13,8 +13,8 @@ const Services = [
 export default function Footer() {
   const { t } = useLocale();
   return (
-    <footer id="contact" className="bg-gray-900 text-white">
-      <div className="container mx-auto px-4 py-16">
+    <footer id="contact" className="bg-gray-900 text-white w-full">
+      <div className="px-4 sm:px-10 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <h3 className="text-2xl font-bold mb-6">Cozy.</h3>
@@ -96,7 +96,7 @@ export default function Footer() {
                 </a>
               </div>
 
-              <div className="flex items-center space-x-3">
+              <div className="flex items-start  space-x-3">
                 <svg
                   className="w-5 h-5 text-blue-400"
                   fill="currentColor"
@@ -105,11 +105,11 @@ export default function Footer() {
                   <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                 </svg>
                 <a href="tel:0905103794" className="text-gray-300">
-                  090 510 3794
+                  086 884 7472
                 </a>
                 &nbsp;- &nbsp;
                 <a href="tel:0868847472" className="text-gray-300">
-                  086 884 7472
+                  090 510 3794
                 </a>
               </div>
 
@@ -129,7 +129,7 @@ export default function Footer() {
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d243.66585102649546!2d109.2014941!3d12.2717038!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317067edbd580f25%3A0xfdcf3e0dc83b4637!2zSOG6u20gxJBvw6BuIFRy4bqnbiBOZ2hp4buHcCwgVsSpbmggUGjGsOG7m2MsIE5oYSBUcmFuZywgS2jDoW5oIEjDsmEgNjUwMDAw!5e0!3m2!1sen!2s!4v1756823554215!5m2!1sen!2s"
             width={"100%"}
-            height={"200"}
+            height={"256"}
             style={{ border: 0 }}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"

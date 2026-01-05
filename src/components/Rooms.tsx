@@ -1,41 +1,101 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useLocale } from "@/contexts/LocaleContext";
 import { ROOMS } from "@/constants";
 
 const Rooms = () => {
   const { locale } = useLocale();
-  const [activeId, setActiveId] = React.useState(ROOMS[0].id);
-  const activeRoom = ROOMS.find((room) => room.id === activeId);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!containerRef.current) return;
+
+      const containerTop = containerRef.current.getBoundingClientRect().top;
+      const containerHeight = containerRef.current.offsetHeight;
+      const viewportHeight = window.innerHeight;
+
+      if (
+        containerTop <= 0 &&
+        containerTop > -containerHeight + viewportHeight
+      ) {
+        const scrollProgress = Math.abs(containerTop);
+        const sectionHeight = (containerHeight - viewportHeight) / ROOMS.length;
+        const newIndex = Math.min(
+          Math.floor(scrollProgress / sectionHeight),
+          ROOMS.length - 1
+        );
+        setActiveIndex(newIndex);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div
       id="rooms"
-      className="flex flex-col sm:flex-row justify-center items-center sm:items-start mb-14 px-5 sm:px-10 gap-5 sm:gap-10"
+      ref={containerRef}
+      className="relative"
+      style={{ height: `${(ROOMS.length + 1) * 100}vh` }}
     >
-      {/* Image Left */}
-      <div className="w-full max-w-[400px] aspect-[3/4] rounded-xl shadow-md">
-        <img
-          className="object-cover w-full h-full rounded-xl"
-          src={activeRoom?.image}
-          alt={activeRoom?.title}
-        />
-      </div>
-      {/* Tabs & Details Right */}
-      <div className="sm:w-1/2 flex flex-col items-start">
-        {ROOMS.map((room) => (
-          <div
-            key={room.id}
-            className="border-b-2 border-black/10 py-4 cursor-pointer w-full"
-            onClick={() => setActiveId(room.id)}
-          >
-            <h2 className="text-lg font-semibold">{room.title}</h2>
-            {activeRoom && activeRoom.id === room.id && (
-              <p className="text-gray-700">{activeRoom.description[locale]}</p>
-            )}
+      {/* Sticky Container */}
+      <div className="sticky top-0 h-screen flex flex-col sm:flex-row items-center justify-center px-4 sm:px-10 gap-5 sm:gap-10 overflow-hidden">
+        {/* Image Left - with parallax transition */}
+        <div className="relative w-full max-w-[300px] sm:max-w-[400px] aspect-[3/4] rounded-xl shadow-lg overflow-hidden">
+          {ROOMS.map((room, index) => (
+            <img
+              key={room.id}
+              className={`absolute inset-0 object-cover w-full h-full transition-opacity duration-500 ${
+                index === activeIndex ? "opacity-100" : "opacity-0"
+              }`}
+              src={room.image}
+              alt={room.title}
+            />
+          ))}
+        </div>
+
+        {/* Content Right - with slide transition */}
+        <div className="w-full sm:w-1/2 relative h-[100px] sm:h-[300px]">
+          {ROOMS.map((room, index) => (
+            <div
+              key={room.id}
+              ref={(el) => {
+                sectionRefs.current[index] = el;
+              }}
+              className={`absolute inset-0 flex flex-col justify-center transition-all duration-500 ${
+                index === activeIndex
+                  ? "opacity-100 translate-y-0"
+                  : index < activeIndex
+                  ? "opacity-0 -translate-y-10"
+                  : "opacity-0 translate-y-10"
+              }`}
+            >
+              <h3 className="text-2xl sm:text-3xl font-semibold mb-3">
+                {room.title}
+              </h3>
+              <p className="text-gray-600 text-base sm:text-lg">
+                {room.description[locale]}
+              </p>
+            </div>
+          ))}
+
+          {/* Progress Indicators */}
+          <div className="absolute bottom-0 left-0 flex gap-2">
+            {ROOMS.map((_, index) => (
+              <div
+                key={index}
+                className={`h-1 rounded-full transition-all duration-300 ${
+                  index === activeIndex ? "w-8 bg-black" : "w-2 bg-gray-300"
+                }`}
+              />
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </div>
   );

@@ -10,6 +10,7 @@ export default function BookingForm() {
     checkOut: "",
     guests: "2",
     roomType: "standard",
+    phoneNumber: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -27,25 +28,15 @@ export default function BookingForm() {
     });
   };
 
-  const formatDate = (dateString: string) => {
-    if (!dateString) return "";
-    const date = new Date(dateString);
-    return date.toLocaleDateString("en-US", {
-      weekday: "short",
-      month: "short",
-      day: "numeric",
-    });
-  };
-
   const getTodayDate = () => {
     const today = new Date();
     return today.toISOString().split("T")[0];
   };
 
-  const getMinCheckOutDate = () => {
+  const getCheckOutDate = (days = 1) => {
     if (!formData.checkIn) return getTodayDate();
     const checkInDate = new Date(formData.checkIn);
-    checkInDate.setDate(checkInDate.getDate() + 1);
+    checkInDate.setDate(checkInDate.getDate() + days);
     return checkInDate.toISOString().split("T")[0];
   };
 
@@ -58,6 +49,21 @@ export default function BookingForm() {
         onSubmit={handleSubmit}
         className="grid grid-cols-1 sm:grid-cols-5 gap-4"
       >
+        <div className="relateive">
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            {t("booking.phoneNumber")}
+          </label>
+          <input
+            type="tel"
+            name="phoneNumber"
+            value={formData.phoneNumber}
+            onChange={handleChange}
+            placeholder="0..."
+            required
+            pattern="^0\d{9}$"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          />
+        </div>
         <div className="relative">
           <label className="block text-sm font-medium text-gray-700 mb-1">
             {t("booking.checkIn")}
@@ -66,9 +72,8 @@ export default function BookingForm() {
             <input
               type="date"
               name="checkIn"
-              value={formData.checkIn}
               onChange={handleChange}
-              // min={getTodayDate()}
+              min={getTodayDate()}
               required
               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
@@ -96,11 +101,13 @@ export default function BookingForm() {
           </label>
           <div className="relative">
             <input
+              disabled={!formData.checkIn}
               type="date"
               name="checkOut"
               value={formData.checkOut}
               onChange={handleChange}
-              min={getMinCheckOutDate()}
+              min={getCheckOutDate()}
+              max={getCheckOutDate(7)}
               required
               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
@@ -153,16 +160,13 @@ export default function BookingForm() {
             <option value="standard">{t("booking.roomTypes.standard")}</option>
             <option value="deluxe">{t("booking.roomTypes.deluxe")}</option>
             <option value="suite">{t("booking.roomTypes.suite")}</option>
-            <option value="presidential">
-              {t("booking.roomTypes.presidential")}
-            </option>
           </select>
         </div>
 
         <div className="flex items-end">
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200"
+            className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200"
           >
             <span className="flex items-center justify-center space-x-2">
               <svg

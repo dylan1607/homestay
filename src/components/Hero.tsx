@@ -23,7 +23,7 @@ export default function Hero() {
           transform: `translateY(${scrollY * 0.35}px)`,
         }}
       >
-        <div className="absolute inset-0 bg-white/10"></div>
+        <div className="absolute inset-0 bg-gray-600/20"></div>
       </div>
 
       <div className="absolute inset-0 -translate-y-20 z-10 h-full flex items-center justify-center text-center text-black">

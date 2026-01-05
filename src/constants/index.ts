@@ -8,7 +8,7 @@ export const MENUS = [
   { href: "#promotions", text: "Promotions", locale: "nav.promotions" },
   { href: "#testimonials", text: "Testimonials", locale: "nav.reviews" },
   { href: "#contact", text: "Contact", locale: "nav.contact" },
-  { href: "#bookNow", text: "Book Now", locale: "nav.bookNow" },
+  // { href: "#bookNow", text: "Book Now", locale: "nav.bookNow" },
 ];
 
 export const ROOMS = [
@@ -50,6 +50,83 @@ export const ROOMS = [
   },
 ];
 
+export const TESTIMONIALS = [
+  {
+    id: 1,
+    name: "Sarah Johnson",
+    location: "New York, USA",
+    rating: 5,
+    text: "Absolutely stunning hotel! The service was impeccable and the views were breathtaking. Will definitely be returning.",
+    image:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
+  },
+  {
+    id: 2,
+    name: "Michael Chen",
+    location: "Singapore",
+    rating: 5,
+    text: "The luxury suite exceeded all expectations. The attention to detail and personalized service made our anniversary unforgettable.",
+    image:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
+  },
+  {
+    id: 3,
+    name: "Emily Rodriguez",
+    location: "Madrid, Spain",
+    rating: 5,
+    text: "From the moment we arrived, we felt like royalty. The spa services and dining options were world-class.",
+    image:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
+  },
+];
+
+export const FAQS = [
+  {
+    id: 1,
+    question: {
+      en: "What time is check-in and check-out?",
+      vi: "Thời gian nhận phòng và trả phòng là mấy giờ?",
+    },
+    answer: {
+      en: "Check-in time is from 2:00 PM and check-out time is until 12:00 PM. Early check-in or late check-out may be available upon request.",
+      vi: "Giờ nhận phòng từ 14:00 và trả phòng trước 12:00. Nhận phòng sớm hoặc trả phòng muộn có thể được sắp xếp theo yêu cầu.",
+    },
+  },
+  {
+    id: 2,
+    question: {
+      en: "Do you offer airport pickup service?",
+      vi: "Bạn có dịch vụ đón sân bay không?",
+    },
+    answer: {
+      en: "Yes, we provide airport pickup and drop-off services. Please contact us at least 24 hours in advance to arrange transportation.",
+      vi: "Có, chúng tôi cung cấp dịch vụ đón và đưa sân bay. Vui lòng liên hệ trước ít nhất 24 giờ để sắp xếp phương tiện.",
+    },
+  },
+  {
+    id: 3,
+    question: {
+      en: "Is there free WiFi available?",
+      vi: "Có WiFi miễn phí không?",
+    },
+    answer: {
+      en: "Yes, complimentary high-speed WiFi is available throughout the property, including all guest rooms and common areas.",
+      vi: "Có, WiFi tốc độ cao miễn phí có sẵn trong toàn bộ khuôn viên, bao gồm tất cả các phòng khách và khu vực chung.",
+    },
+  },
+  {
+    id: 4,
+    question: {
+      en: "What is your cancellation policy?",
+      vi: "Chính sách hủy phòng như thế nào?",
+    },
+    answer: {
+      en: "Free cancellation is available up to 48 hours before check-in. Cancellations made within 48 hours may be subject to a one-night charge.",
+      vi: "Hủy miễn phí có thể thực hiện trước 48 giờ nhận phòng. Hủy trong vòng 48 giờ có thể bị tính phí một đêm.",
+    },
+  },
+];
+
 export const LOCALE = {
   en: {
     // Header
@@ -79,7 +156,7 @@ export const LOCALE = {
     "booking.roomTypes.standard": "Standard",
     "booking.roomTypes.deluxe": "Deluxe",
     "booking.roomTypes.suite": "Suite",
-    "booking.roomTypes.presidential": "Presidential",
+    "booking.phoneNumber": "Phone Number (*)",
 
     // Promotions
     "promotions.title": "Exclusive Offers",
@@ -105,6 +182,9 @@ export const LOCALE = {
     "contact.phone": "Phone",
     "contact.email": "Email",
     "contact.address": "Address",
+
+    // FAQ
+    "faq.title": "Frequently Asked Questions",
   },
   vi: {
     // Header
@@ -134,7 +214,7 @@ export const LOCALE = {
     "booking.roomTypes.standard": "Tiêu chuẩn",
     "booking.roomTypes.deluxe": "Cao cấp",
     "booking.roomTypes.suite": "Phòng suite",
-    "booking.roomTypes.presidential": "Tổng thống",
+    "booking.phoneNumber": "Số điện thoại (*)",
 
     // Promotions
     "promotions.title": "Ưu đãi đặc biệt",
@@ -161,5 +241,8 @@ export const LOCALE = {
     "contact.phone": "Điện thoại",
     "contact.email": "Email",
     "contact.address": "Địa chỉ",
+
+    // FAQ
+    "faq.title": "Câu Hỏi Thường Gặp",
   },
 };

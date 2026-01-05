@@ -5,12 +5,25 @@
   --foreground: #171717;
 }
 
+@utility animate-paused {
+  animation-play-state: paused;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
+
+@keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
 
 /* @media (prefers-color-scheme: dark) {
   :root {
