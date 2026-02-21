@@ -78,6 +78,15 @@ export const TESTIMONIALS = [
     image:
       "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
   },
+  {
+    id: 4,
+    name: "Emily",
+    location: "Madrid, Spain",
+    rating: 5,
+    text: "From the moment we arrived, we felt like royalty. The spa services and dining options were world-class.",
+    image:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
+  },
 ];
 
 export const FAQS = [

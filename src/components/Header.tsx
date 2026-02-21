@@ -94,7 +94,7 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 w-full z-20 transition-all duration-300 ${
-        isScrolled ? "bg-white/80 backdrop-blur-xl" : "bg-transparent"
+        isScrolled ? "bg-white/50 backdrop-blur-xl" : "bg-transparent"
       }`}
     >
       <nav className="w-full px-6 py-3 sm:py-4 rounded-xl duration-300 transition-all text-black">
@@ -117,12 +117,15 @@ export default function Header() {
             {renderLocaleButton()}
           </div>
 
-          <Link
-            href="#bookNow"
+          <button
+            onClick={() => {
+              window.location.hash = "bookNow";
+              document.getElementById("banner")?.scrollIntoView({ behavior: "smooth" });
+            }}
             className="hidden sm:block bg-black cursor-pointer text-white px-6 py-2 rounded-full font-semibold"
           >
             {t("nav.bookNow")}
-          </Link>
+          </button>
 
           {/* Hamburger Menu */}
           <button

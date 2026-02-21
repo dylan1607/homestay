@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocale } from "@/contexts/LocaleContext";
 import { useScroll } from "@/hooks";
 import BookingForm from "./BookingForm";
@@ -10,6 +10,19 @@ export default function Hero() {
   const scrollY = useScroll();
   const [showBooking, setShowBooking] = useState(false);
   const { t } = useLocale();
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      if (window.location.hash === "#bookNow") {
+        setShowBooking(true);
+        window.history.replaceState(null, "", window.location.pathname);
+      }
+    };
+
+    handleHashChange();
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
 
   return (
     <section
